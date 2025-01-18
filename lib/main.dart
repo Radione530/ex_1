@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Task Manager',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: TaskScreen(),
     );
@@ -60,6 +61,8 @@ class _TaskScreenState extends State<TaskScreen> {
                     controller: taskController,
                     decoration: InputDecoration(
                       hintText: 'Enter new task',
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
                     ),
                   ),
                 ),
@@ -98,6 +101,10 @@ class _TaskScreenState extends State<TaskScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: addTask,
+        child: Icon(Icons.add),
       ),
     );
   }
